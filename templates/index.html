@@ -38,9 +38,10 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
     <style>
-        body{
+        body {
             background-color: black;
         }
+
         .inputfiled {
             display: none;
 
@@ -137,37 +138,40 @@
             border-radius: 25px;
             border-color: rgb(196, 7, 108);
         }
-        .analyzebtnn{
+
+        .analyzebtnn {
             height: 50px;
             width: 50px;
             background-color: rgb(0, 28, 7);
             border-radius: 50%;
             border-color: black;
         }
-        .containerr{
+
+        .containerr {
             margin-top: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 50px;
         }
-        .chatbox{
+
+        .chatbox {
             height: 80dvh;
             width: full;
             background-color: rgb(31, 30, 30);
             border-radius: 25px;
         }
-        .resultbox{
+
+        .resultbox {
             padding: 25px;
-            border: none ;
+            border: none;
         }
-        
     </style>
 </head>
 
 <body class="index-page">
 
-    
+
 
     <main class="main">
         <h1 class="mainhead">NExoRA</h1>
@@ -177,9 +181,9 @@
                 <div id="result" class="resultbox"></div>
             </div>
             <div class="containerr">
-            
-                <input class="inputf" type="text" id="medicineInput" placeholder="Enter Your Query"
-                style="width: 300px; height: 40px; border-radius: 8px; padding: 10px;">
+
+                <input class="inputf" type="text" id="userinput" placeholder="Enter Your Query"
+                    style="width: 300px; height: 40px; border-radius: 8px; padding: 10px;">
 
                 <br><br>
 
@@ -188,7 +192,7 @@
                 <br><br>
             </div>
         </div>
-    
+
     </main>
 
 
@@ -214,17 +218,17 @@
     <script>
         async function analyzeMedicine() {
 
-            const medName = document.getElementById("medicineInput").value;
+            const medName = document.getElementById("userinput").value;
             const resultArea = document.getElementById("result");
 
             if (!medName) {
-                alert("Enter medicine name");
+                alert("Plz Enter Your Query");
                 return;
             }
 
             // Loader
             resultArea.innerHTML = `
-        <p>Finding alternatives...</p>
+        <p>NExoRA is Thinking.....</p>
     `;
 
             try {
@@ -245,9 +249,9 @@
                 data.alternatives.forEach(med => {
                     html += `
                 <div style="margin-bottom:15px;">
-                    <strong>${med.name}</strong><br>
-                    <span>Use: ${med.use}</span><br>
-                    <small>${med.note}</small>
+                    <strong>${med.heading}</strong><br>
+                    <span>Use: ${med.solution}</span><br>
+                    <small>${med.importent_points}</small>
                 </div>
                 <hr>
             `;

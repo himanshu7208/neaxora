@@ -362,38 +362,30 @@ WOMEN'S PRIVATE HEATH
 @app.route("/medicine-alternative", methods=["POST"])
 def medicine_alternative():
     data = request.get_json()
-    med = data.get("medicine")
+    med = data.get("query")
 
     prompt = f"""
-A medicine named {med} is not available.
 
-Suggest 3 alternative medicines with similar ingredients.
+user given query {med} analy.
+
+solve user query and suggeste them to solutions
 
 Return ONLY JSON in this format:
 
 {{
 "alternatives": [
   {{
-    "name": "",
-    "use": "",
-    "note": ""
-  }},
-  {{
-    "name": "",
-    "use": "",
-    "note": ""
-  }},
-  {{
-    "name": "",
-    "use": "",
-    "note": ""
+    "heading": "",
+    "solution": "",
+    "importent_points": ""
   }}
 ]
 }}
 
 Rules:
-- Keep answers short
-- No paragraph
+- make apropreate heading
+- a short para for solution that come under heading
+- give some points that it importent for user query 
 - Only JSON output
 """
 
